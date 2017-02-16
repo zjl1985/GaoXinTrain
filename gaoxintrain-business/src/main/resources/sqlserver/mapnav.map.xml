@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.gaoxin.hitplatform.dao.MapNavMapper">
+    <resultMap id="_MapNav" type="com.gaoxin.hitplatform.api.MapNav">
+        <id property="id" column="mapid"/>
+        <result property="display_name" column="display_name"/>
+        <result property="the_top" column="the_top"/>
+        <result property="the_left" column="the_left"/>
+        <result property="type" column="type"/>
+        <result property="maker_icon" column="maker_icon"/>
+        <collection property="deviceInfoList" resultMap="_DeviceInfo"/>
+    </resultMap>
+    <resultMap id="_DeviceInfo" type="com.gaoxin.device.api.devicemanagement.DeviceInfo">
+        <id property="id" column="id"/>
+        <result property="parent_id" column="parent_id"/>
+        <result property="code" column="code"/>
+        <result property="name" column="name"/>
+        <result property="device_type" column="device_type"/>
+        <result property="model" column="model"/>
+        <result property="accuracy_class" column="accuracy_class"/>
+        <result property="measuring_range" column="measuring_range"/>
+        <result property="manufacturer" column="manufacturer"/>
+        <result property="test_cycle" column="test_cycle"/>
+        <result property="institutes" column="institutes"/>
+        <result property="install_location" column="install_location"/>
+        <result property="remark" column="remark"/>
+        <result property="device_status" column="device_status"/>
+        <result property="create_time" column="create_time"/>
+        <collection property="alarmParam" resultMap="_DeviceCollection"/>
+    </resultMap>
+    <resultMap id="_DeviceCollection" type="com.gaoxin.device.api.devicemanagement.DeviceCollection">
+        <id property="id" column="dc_id"/>
+        <result property="device_id" column="id"/>
+        <result property="name" column="dc_name"/>
+        <result property="data_storage" column="dc_data_storage"/>
+        <result property="index_id" column="dc_index_id"/>
+        <result property="is_alarm" column="dc_is_alarm"/>
+    </resultMap>
+    <select id="getList" resultMap="_MapNav">
+        SELECT mn.id as mapid,mn.display_name,mn.the_top,mn.the_left,mn.type,mn.maker_icon,dev.*,
+        dc.id as dc_id,
+        dc.name as dc_name,
+        dc.data_storage as dc_data_storage,
+        dc.index_id as dc_index_id,
+        dc.is_alarm as dc_is_alarm
+        FROM map_nav mn LEFT JOIN
+        map_device md ON mn.id=md.map_id
+        LEFT JOIN
+        device dev ON md.device_id=dev.id
+        LEFT JOIN device_collection dc ON dev.id=dc.device_id AND dc.is_alarm=1
+        <if test="mapNav.type!=null">
+            WHERE mn.type=#{mapNav.type}
+        </if>
+    </select>
+    <select id="getMapNav" resultMap="_MapNav">
+        SELECT mn.id as mapid,mn.display_name,mn.the_top,mn.the_left,mn.type,mn.maker_icon,dev.*,
+        dc.id as dc_id,
+        dc.name as dc_name,
+        dc.data_storage as dc_data_storage,
+        dc.index_id as dc_index_id,
+        dc.is_alarm as dc_is_alarm
+        FROM map_nav mn LEFT JOIN
+        map_device md ON mn.id=md.map_id
+        LEFT JOIN
+        device dev ON md.device_id=dev.id
+        LEFT JOIN device_collection dc ON dev.id=dc.device_id
+        WHERE mn.id=#{id}
+        ORDER BY dev.name
+    </select>
+</mapper>

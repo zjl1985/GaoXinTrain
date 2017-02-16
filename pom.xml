@@ -9,6 +9,9 @@
     <name>gaoxintrain</name>
     <description></description>
     <modules>
+        <module>gaoxintrain-api</module>
+        <module>gaoxintrain-business</module>
+        <module>gaoxintrain-web</module>
     </modules>
     <profiles>
         <profile>
