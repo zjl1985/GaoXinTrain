@@ -203,7 +203,6 @@
 <script src="<%=request.getContextPath()%>/assets/global/plugins/bootstrap-select/js/i18n/defaults-zh_CN.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/global/plugins/jquery-ui/jquery-ui.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/global/plugins/jquery-layout/jquery.layout-latest.js"></script>
-<script src="<%=request.getContextPath()%>/assets/global/plugins/FileSaver.min.js"></script>
 <script src="<%=request.getContextPath()%>/assets/global/scripts/app.js"
         type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/assets/global/scripts/datatable.js"
@@ -214,9 +213,6 @@
         type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/assets/layouts/global/scripts/bootstrap-addtabs.js"
         type="text/javascript"></script>
-<script src="<%= request.getContextPath()%>/assets/global/plugins/numeral/numeral.min.js"
-        type="text/javascript"></script>
-<script src="<%= request.getContextPath()%>/assets/global/plugins/numeral/chs.min.js" type="text/javascript"></script>
 </body>
 
 <script type="text/javascript">
