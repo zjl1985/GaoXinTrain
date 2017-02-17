@@ -27,7 +27,7 @@
 
 	<!--配置spring mybatis数据访问接口扫描包-->
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-		<property name="basePackage" value="com.gaoxin.hitplatform.dao"/>
+		<property name="basePackage" value="com.gaoxin.gaoxintrain.dao"/>
 		<property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"/>
 	</bean>
 </beans>

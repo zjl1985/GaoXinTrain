@@ -109,9 +109,15 @@
                             class="title">培训1</span><span class="arrow"></span></a>
                     <ul class="sub-menu">
                         <li class="nav-item">
-                            <a href="#" url="demo1/demo1.jsp"
+                            <a href="#" url="messagelog/messagelog.jsp"
                                data-addtab="a8890322-c4c9-41fe-9c3b-0c6df07319e5" class="nav-link nav-toggle">
                                 <i class="fa fa-braille"></i><span class="title">菜单1</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="#" url="demo1/demo1.jsp"
+                               data-addtab="a8890322-c2224c9-41fe-9c3b-0c6df07319e5" class="nav-link nav-toggle">
+                                <i class="fa fa-braille"></i><span class="title">菜单121212</span>
                             </a>
                         </li>
                     </ul>
