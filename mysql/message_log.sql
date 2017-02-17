@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 100114
 File Encoding         : 65001
 
-Date: 2017-02-16 14:05:50
+Date: 2017-02-17 13:54:00
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,5 +25,6 @@ CREATE TABLE `message_log` (
   `name` varchar(255) CHARACTER SET latin1 DEFAULT NULL,
   `context` varchar(4000) CHARACTER SET latin1 DEFAULT NULL,
   `state` int(11) DEFAULT NULL,
+  `sendTime` datetime DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

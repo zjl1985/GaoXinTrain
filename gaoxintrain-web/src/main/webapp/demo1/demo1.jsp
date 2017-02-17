@@ -6,10 +6,17 @@
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<link href="<%=request.getContextPath()%>/assets/pages/css/demo1/demo1.css" rel="stylesheet"
+      type="text/css"/>
 <div class="container-fluid">
     <div class="row">
+        <div class="col-md-4 col-lg-offset-8">
+            <button class="btn btn-primary" id="btn_add_demo1">添加一条</button>
+        </div>
+    </div>
+    <div class="row">
         <div class="col-md-12">
-            <table class="table table-striped table-bordered table-hover" style="width: 100%" id="demo_table">
+            <table class="table table-bordered" style="width: 100%" id="demo_table">
                 <thead>
                 <tr>
                     <th>发送地址</th>
