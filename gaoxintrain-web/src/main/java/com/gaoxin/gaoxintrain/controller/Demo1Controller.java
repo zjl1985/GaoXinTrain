@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,7 +17,7 @@ import java.util.List;
 @RequestMapping("/demo1")
 public class Demo1Controller {
 
-    @RequestMapping(value = "messagelog",method = RequestMethod.GET)
+    @RequestMapping(value = "demo1",method = RequestMethod.GET)
     @ResponseBody
     public List<Demo1> getlist() {
         List<Demo1> messageLogList=new ArrayList<>();
@@ -26,9 +27,8 @@ public class Demo1Controller {
         messageLog.setContext("dome1");
         messageLog.setId(1);
         messageLog.setState(1);
-
-
-
-        return null;
+        messageLog.setSendTime(new Date());
+        messageLogList.add(messageLog);
+        return messageLogList;
     }
 }
